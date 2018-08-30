@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  ts-pm2:
+    container_name: ts-pm2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: ../.env
+    environment:
+      - PORT=${PORT:-3000}
+      - PM2_PORT=${PM2_PORT:-3001}
+    image: ts-pm2
+    working_dir: /usr/app
+    ports:
+      - "${PORT:-3000}:${PORT:-3000}"
+      - "${PM2_PORT:-3001}:${PM2_PORT:-3001}"
+    volumes:
+      - ../:/usr/app
+    command: ["--web", "${PM2_PORT}"]

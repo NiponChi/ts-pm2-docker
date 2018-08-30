@@ -4,9 +4,14 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "up": "docker-compose -f docker/docker-compose.yml up -d",
+    "pm2:ls": "docker-compose -f docker/docker-compose.yml exec ts-pm2 pm2 ls",
+    "pm2:monit": "docker-compose -f docker/docker-compose.yml exec ts-pm2 pm2 monit"
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^10.9.3"
+  }
 }
