@@ -5,6 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "up": "docker-compose -f docker/docker-compose.yml up -d",
+    "down": "docker-compose -f docker/docker-compose.yml down",
     "pm2:ls": "docker-compose -f docker/docker-compose.yml exec ts-pm2 pm2 ls",
     "pm2:monit": "docker-compose -f docker/docker-compose.yml exec ts-pm2 pm2 monit"
   },
